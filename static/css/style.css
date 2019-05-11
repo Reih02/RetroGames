@@ -13,6 +13,7 @@ footer {
 }
 
 h1 {
+  font-size: 40px;
   width: 100%;
   background-color: black;
   color: red;
@@ -24,13 +25,40 @@ h1 {
 
 h2 {
   color: white;
+  text-decoration-style: 1px;
+  text-decoration-color: black;
   text-align: center;
 }
 
 h3 {
+  font-size: 21px;
   color: white;
   text-align: center;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+#wrapper {
+  height: 200px;
+}
+
+#smallbox1 {
+  background-color: #333;
+  display: block;
+  margin-left: 30.5%;
+  margin-top: 6%;
+  width: 40%;
+  height: 200%;
+  text-align: center;
+  padding-top: 2px;
+  padding-right: 2px;
+}
+
+.navbarlogo1 {
+  margin-bottom: 2px;
+}
+
+#topnav {
+  width: 100%;
 }
 
 ul {
@@ -61,4 +89,8 @@ li a:hover {
 li a:active {
   color: red;
   background-color: #111;
+}
+
+#footer {
+  margin-top: 34%;
 }
