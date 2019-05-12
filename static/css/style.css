@@ -37,6 +37,10 @@ h3 {
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
+#games {
+  
+}
+
 #wrapper {
   height: 200px;
 }
@@ -82,12 +86,10 @@ li a {
 }
 
 li a:hover {
-  color: red;
   background-color: #111;
 }
 
 li a:active {
-  color: red;
   background-color: #111;
 }
 

@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<title>Top Retro Games</title>
+
+<h2>View our personally hand picked selection of only the best Retro GAMES
+    below:</h2>
+
+<div id="games">
+{% for games in results %}
+   <a href="/games/{{games[1]}}"><li>{{games[1]}}<img src={{games[3]}} alt="{{games[1]}} Picture"</li></a>
+{% endfor %}
+</div>
+
+
+
+{% endblock %}
