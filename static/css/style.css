@@ -38,7 +38,21 @@ h3 {
 }
 
 #games {
-  
+  /*border-style: solid;*/
+  /*border-color: black;*/
+  border-width: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+#games a{
+  text-decoration: none;
+  border-style: solid
+  color: black;
+}
+
+#games a:hover {
+  text-decoration: underline;
 }
 
 #wrapper {
@@ -51,14 +65,9 @@ h3 {
   margin-left: 30.5%;
   margin-top: 6%;
   width: 40%;
-  height: 200%;
   text-align: center;
   padding-top: 2px;
   padding-right: 2px;
-}
-
-.navbarlogo1 {
-  margin-bottom: 2px;
 }
 
 #topnav {

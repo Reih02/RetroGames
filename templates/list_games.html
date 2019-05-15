@@ -4,12 +4,12 @@
 
 <title>Top Retro Games</title>
 
-<h2>View our personally hand picked selection of only the best Retro GAMES
+<h2>View our personally hand picked selection of only the best Retro Games
     below:</h2>
 
 <div id="games">
 {% for games in results %}
-   <a href="/games/{{games[1]}}"><li>{{games[1]}}<img src={{games[3]}} alt="{{games[1]}} Picture"</li></a>
+   <a href="/games/{{games[1]}}" style="color: white">{{games[1]}}<img src={{games[3]}} alt="{{games[1]}} Picture" style="width:259px;height:194px;"</a>
 {% endfor %}
 </div>
 
