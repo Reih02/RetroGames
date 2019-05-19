@@ -70,6 +70,18 @@ h3 {
   padding-right: 2px;
 }
 
+#showgames {
+  background-color: #333;
+  display: block;
+  margin-left: 30.5%;
+  margin-top: 6%;
+  width: 40%;
+  text-align: center;
+  padding-top: 2px;
+  padding-right: 2px;
+  color: white;
+}
+
 #topnav {
   width: 100%;
 }
