@@ -31,7 +31,7 @@ h2 {
 }
 
 h3 {
-  font-size: 21px;
+  font-size: 28px;
   color: white;
   text-align: center;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
@@ -80,6 +80,27 @@ h3 {
   padding-top: 2px;
   padding-right: 2px;
   color: white;
+}
+
+.content {
+  margin-top: 20%;
+  font-size: 25px;
+}
+
+#companytext {
+  color: white;
+  text-decoration-style: 1px;
+  text-decoration-color: black;
+  text-align: left;
+  font-size: 25px;
+}
+
+#categorytext {
+  color: white;
+  text-decoration-style: 1px;
+  text-decoration-color: black;
+  text-align: left;
+  font-size: 25px;
 }
 
 #topnav {
