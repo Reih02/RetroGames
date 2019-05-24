@@ -23,11 +23,20 @@ def navigation():
 def game(game):
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
-    cur.execute("SELECT name, details, image FROM Games WHERE name='{}'"
-                .format(game))
+    cur.execute('''SELECT name, details, image, developerid, categoryid FROM
+                Games WHERE name="{}"'''.format(game))
     results = cur.fetchone()
+
+    cur.execute("SELECT name FROM Developer WHERE id='{}'"
+                .format(results[3]))
+    developer = cur.fetchone()
+
+    cur.execute("SELECT name, details FROM Category WHERE id='{}'"
+                .format(results[4]))
+    category = cur.fetchone()
     return render_template("show_games.html", page_title='{}'.format(game),
-                           results=results)
+                           results=results, category=category,
+                           developer=developer)
 
 
 @app.route('/contact')

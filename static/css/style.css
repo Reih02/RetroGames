@@ -62,12 +62,11 @@ h3 {
 #smallbox1 {
   background-color: #333;
   display: block;
-  margin-left: 30.5%;
+  margin: auto;
   margin-top: 6%;
   width: 40%;
   text-align: center;
-  padding-top: 2px;
-  padding-right: 2px;
+  padding: 20px;
 }
 
 #showgames {
@@ -91,6 +90,7 @@ h3 {
   color: white;
   text-decoration-style: 1px;
   text-decoration-color: black;
+  text-decoration: underline;
   text-align: left;
   font-size: 25px;
 }
@@ -99,8 +99,13 @@ h3 {
   color: white;
   text-decoration-style: 1px;
   text-decoration-color: black;
+  text-decoration: underline;
   text-align: left;
   font-size: 25px;
+}
+
+#categorynametext {
+  font-size: 40px;
 }
 
 #topnav {
