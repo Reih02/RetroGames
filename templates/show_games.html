@@ -5,25 +5,31 @@
 <strong><h3>{{results[0]}}</h3></strong>
 
 <div id="showgames">
-    <img src='{{results[2]}}' alt="{{results[1]}} Picture" style="width:259px;height:194px;">
+    <img src='{{results[2]}}' alt="{{results[1]}} Picture"
+    style="width:259px;height:194px;">
+
     <div class="content">
-    <!-- Game name -->
     <p>{{results[0]}} is {{results[1]}}</p>
+
     <div id="companytext">
     <h2>Made by: </h2>
     </div>
     <p>{{developer[0]}}</p>
+
     <div id="categorytext">
     <h2>Category: </h2>
     </div>
     <p>{{category[0]}}: a {{category[1]}}</p>
     </div>
+
     <div id="consoletext">
     <h2>Console: </h2>
     </div>
+
     <div id="consoleparatext">
     <p>{{results[0]}} was first released on the {{console[0]}}</p>
     </div>
+
 </div>
 
 {%endblock%}
