@@ -34,9 +34,17 @@ def game(game):
     cur.execute("SELECT name, details FROM Category WHERE id='{}'"
                 .format(results[4]))
     category = cur.fetchone()
+
+    cur.execute('''SELECT name from Console INNER JOIN GamesConsole ON
+                Console.id=GamesConsole.cid
+                WHERE gid=(select id FROM Games
+                           WHERE name='{}')'''.format(game))
+    console = cur.fetchone()
+
+    cat = cur.fetchone()
     return render_template("show_games.html", page_title='{}'.format(game),
                            results=results, category=category,
-                           developer=developer)
+                           developer=developer, cat=cat, console=console)
 
 
 @app.route('/contact')
