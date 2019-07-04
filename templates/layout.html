@@ -1,10 +1,13 @@
 <!doctype html>
 <html>
 <head>
+  <!––links css file to all html pages in order to provide style to the pages––>
   <link rel="stylesheet" type='text/css' href="/static/css/style.css">
   <title> Retro Games - {{ page_title }} </title>
 </head>
 <body>
+  <!––creates a basic template for each page by linking different files
+      together and includes them in each of the four frontend pages––>
   <div id = "wrapper">
   {%include "header.html"%}
   {%include "navigation.html"%}

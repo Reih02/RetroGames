@@ -1,3 +1,4 @@
+/*provides general style for whole site*/
 html {
   height: 100%;
   bottom: 0%;
@@ -6,12 +7,17 @@ html {
   border-color: black;
   border-width: 0px;
 }
-
+/*provides style for bottom of page*/
 footer {
   position: absolute;
   bottom: 0;
 }
 
+#footer {
+  margin-top: 34%;
+}
+
+/*provides style to all text assigned as h1*/
 h1 {
   font-size: 40px;
   width: 100%;
@@ -23,6 +29,7 @@ h1 {
 	border-bottom-color: black;
 }
 
+/*provides style to all text assigned as h2*/
 h2 {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
@@ -31,7 +38,7 @@ h2 {
   text-align: center;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
-
+/*provides style to all text assigned as h3*/
 h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 28px;
@@ -41,7 +48,7 @@ h3 {
 }
 
 
-
+/*gives style to the list_games page*/
 #games {
   border-width: 5px;
   text-decoration: none;
@@ -63,7 +70,8 @@ h3 {
 #wrapper {
   height: 200px;
 }
-
+/*provides style for each display box around the site, from home page to
+list_games page to contact page*/
 #smallbox1 {
   background-color: #333;
   display: block;
@@ -94,6 +102,16 @@ h3 {
   padding: 20px;
 }
 
+#smallbox4 {
+  background-color: #333;
+  display: block;
+  margin: auto;
+  margin-top: 6%;
+  width: 15%;
+  text-align: center;
+  padding: 20px;
+}
+
 #showgames {
   background-color: #333;
   display: block;
@@ -105,9 +123,13 @@ h3 {
   padding-right: 2px;
   color: white;
 }
+/*changes image to have some space above it wherever it is used */
+#image {
+  margin-top: 3%;
+}
 
 .content {
-  margin-top: 20%;
+  margin-top: 10%;
   font-size: 25px;
 }
 
@@ -154,6 +176,7 @@ h3 {
   width: 100%;
 }
 
+/*following provides style for navbar*/
 ul {
   list-style-type: none;
   margin: 0;
@@ -180,8 +203,4 @@ li a:hover {
 
 li a:active {
   background-color: #111;
-}
-
-#footer {
-  margin-top: 34%;
 }

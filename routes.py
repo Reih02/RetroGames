@@ -38,11 +38,20 @@ def game(game):
                 WHERE gid=(select id FROM Games
                            WHERE name=?)''', (game,))
     console = cur.fetchone()
-
     cat = cur.fetchone()
     return render_template("show_games.html", page_title='{}'.format(game),
                            results=results, category=category,
                            developer=developer, cat=cat, console=console)
+
+
+@app.route('/developer')
+def developer():
+    conn = sqlite3.connect("retro_games.db")
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Developer")
+    results = cur.fetchall()
+    return render_template("developer.html",
+                           page_title="RETRO DEVELOPERS", results=results)
 
 
 @app.route('/contact')
