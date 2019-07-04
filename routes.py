@@ -24,21 +24,19 @@ def game(game):
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
     cur.execute('''SELECT name, details, image, developerid, categoryid FROM
-                Games WHERE name="{}"'''.format(game))
+                Games WHERE name=?''', (game,))
     results = cur.fetchone()
 
-    cur.execute("SELECT name FROM Developer WHERE id='{}'"
-                .format(results[3]))
+    cur.execute("SELECT name FROM Developer WHERE id=?", (results[3],))
     developer = cur.fetchone()
 
-    cur.execute("SELECT name, details FROM Category WHERE id='{}'"
-                .format(results[4]))
+    cur.execute("SELECT name, details FROM Category WHERE id=?", (results[4],))
     category = cur.fetchone()
 
     cur.execute('''SELECT name from Console INNER JOIN GamesConsole ON
                 Console.id=GamesConsole.cid
                 WHERE gid=(select id FROM Games
-                           WHERE name='{}')'''.format(game))
+                           WHERE name=?)''', (game,))
     console = cur.fetchone()
 
     cat = cur.fetchone()
