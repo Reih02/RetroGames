@@ -49,36 +49,13 @@ h3 {
 
 
 /*gives style to the list_games page*/
-/*this is providing style suited for a display with a width of less than
-or equal to 1366px so that it is optimized for different displays e.g laptops*/
-@media (max-width: 1366px) {
-  #games {
-    float: center;
-    border-width: 5px;
-    text-decoration: none;
-    text-align: center;
-    margin-right: 81%;
-    margin-left: 19%;
-    display: inline-block;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-}
-
-/*this is providing style suited for a display with a width of more than
-or equal to 1920px so that it is optimized for different displays e.g desktops*/
-@media (min-width: 1920px) {
-  #games {
-    float: center;
-    border-width: 5px;
-    text-decoration: none;
-    text-align: center;
-    margin-right: 72.5%;
-    margin-left: 27.5%;
-    display: inline-block;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
+#games {
+  float: center;
+  border-width: 5px;
+  text-decoration: none;
+  text-align: center;
+  margin-right: 70%;
+  margin-left: 25%;
 }
 
 #games a{
@@ -94,7 +71,6 @@ or equal to 1920px so that it is optimized for different displays e.g desktops*/
 #wrapper {
   height: 200px;
 }
-
 /*provides style for each display box around the site, from home page to
 list_games page to contact page*/
 #smallbox1 {
@@ -122,9 +98,16 @@ list_games page to contact page*/
   display: block;
   margin: auto;
   margin-top: 6%;
-  width: 30%;
-  margin-left: 30%
-  margin-right: 70%;
+  width: 35%;
+}
+
+#smallbox4 {
+  background-color: #333;
+  display: block;
+  margin: auto;
+  margin-top: 6%;
+  width: 35%;
+  padding: 20px;
 }
 
 #showgames {
@@ -139,42 +122,13 @@ list_games page to contact page*/
   color: white;
 }
 
-@media (max-width: 1366px) {
-  #developer {
-    float: center;
-    border-width: 5px;
-    text-decoration: none;
-    text-align: center;
-    margin-right: 81%;
-    margin-left: 19%;
-    display: inline-block;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-}
-
-@media (min-width: 1920px) {
-  #developer {
-    float: center;
-    border-width: 5px;
-    text-decoration: none;
-    text-align: center;
-    margin-right: 72.5%;
-    margin-left: 27.5%;
-    display: inline-block;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-}
-
-#developer a{
+#developer {
+  float: center;
+  border-width: 5px;
   text-decoration: none;
-  border-style: solid
-  color: black;
-}
-
-#developer a:hover {
-  text-decoration: underline;
+  text-align: center;
+  margin-right: 70%;
+  margin-left: 25%;
 }
 
 /*changes image to have some space above it wherever it is used */
