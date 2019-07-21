@@ -1,0 +1,15 @@
+{%extends "layout.html"%}
+
+{%block content%}
+<strong><h3>{{results[0]}}</h3></strong>
+<div id="showgames">
+  <div id="image">
+    <img src='{{results[2]}}' alt="{{results[1]}} Picture"
+    style="width:259px;height:194px;">
+  </div>
+  <div class = "content">
+    <p>{{results[0]}} was {{results[1]}}</p>
+  </div>
+
+</div>
+{%endblock%}

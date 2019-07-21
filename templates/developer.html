@@ -6,12 +6,12 @@
 
 <h2>View the developers that created the Retro Games listed on this site: </h2>
 <div id= "smallbox3">
-<div id="developer">
+<div id="games">
 {% for developers in results %}
    <!––adds each image onto page by using its value in the database––>
-   <a href="/developers/{{developers[1]}}" style="color: white">
+   <a href="/developer/{{developers[1]}}" style="color: white">{{developers[1]}}
    <img src={{developers[3]}} alt="{{developers[1]}} Picture"
-   style="width:1000%;height:1000%;">{{developers[1]}}
+   style="width:1000%;height:1000%;">
    </a>
 {% endfor %}
 </div>

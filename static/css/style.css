@@ -50,6 +50,8 @@ h3 {
 
 /*gives style to the list_games page*/
 #games {
+  padding-top: 5%;
+  padding-bottom: 5%;
   float: center;
   border-width: 5px;
   text-decoration: none;
@@ -115,6 +117,7 @@ list_games page to contact page*/
   display: block;
   margin-left: 30.5%;
   margin-top: 6%;
+  margin-bottom: 6%;
   width: 40%;
   text-align: center;
   padding-top: 2px;
@@ -138,6 +141,7 @@ list_games page to contact page*/
 
 .content {
   margin-top: 10%;
+  padding-bottom: 0.1%;
   font-size: 25px;
 }
 
@@ -173,6 +177,7 @@ list_games page to contact page*/
 }
 
 #consoleparatext {
+  padding-bottom: 0.1%;
   font-size: 25px;
 }
 

@@ -45,13 +45,24 @@ def game(game):
 
 
 @app.route('/developer')
-def developer():
+def circumnavigation():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
     cur.execute("SELECT * FROM Developer")
     results = cur.fetchall()
     return render_template("developer.html",
                            page_title="RETRO DEVELOPERS", results=results)
+
+
+@app.route('/developer/<developer>')
+def developers(developer):
+    conn = sqlite3.connect("retro_games.db")
+    cur = conn.cursor()
+    cur.execute("SELECT name, details, image FROM Developer WHERE name=?",
+                (developer,))
+    results = cur.fetchone()
+    return render_template("show_developer.html",
+                           page_title='{}'.format(developer), results=results)
 
 
 @app.route('/contact')
