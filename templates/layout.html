@@ -1,13 +1,17 @@
 <!doctype html>
 <html>
 <head>
-  <!––links css file to all html pages in order to provide style to the pages––>
+  <!--links css file to all html pages in order to provide style to the pages-->
   <link rel="stylesheet" type='text/css' href="/static/css/style.css">
   <title> Retro Games - {{ page_title }} </title>
+  <!--links a font into each page from google fonts website-->
+  <link
+   href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap"
+   rel="stylesheet">
 </head>
 <body>
-  <!––creates a basic template for each page by linking different files
-      together and includes them in each of the four frontend pages––>
+  <!--creates a basic template for each page by linking different files
+      together and includes them in each of the four frontend pages-->
   <div id = "wrapper">
   {%include "header.html"%}
   {%include "navigation.html"%}

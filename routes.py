@@ -1,14 +1,21 @@
+# tells python to use flask module and other things I need such as sqlite3 for
+# database integration
 from flask import Flask, render_template
 import sqlite3
 
 app = Flask(__name__)
 
 
+# defines base url as home page and tells flask what page to bring up for this
+# route
 @app.route('/')
 def home():
     return render_template("home.html", page_title="WELCOME TO RETRO GAMES")
 
 
+# route for my first non-home page, games. This page is told to select all
+# data from the database table named Games and displays this on the list_games
+# page.
 @app.route('/games')
 def navigation():
     conn = sqlite3.connect("retro_games.db")
@@ -19,6 +26,10 @@ def navigation():
                            results=results)
 
 
+# this route is for the show_games page, where details are shown on the
+# selected game. It has 4 different queries with the database to do a
+# bring up different data from the database relating to the Games, Developer,
+# Category, and GamesConsole tables.
 @app.route('/games/<game>')
 def game(game):
     conn = sqlite3.connect("retro_games.db")
@@ -44,6 +55,8 @@ def game(game):
                            developer=developer, cat=cat, console=console)
 
 
+# this route selects all data in the Developer table in the database to display
+# on developer.html page.
 @app.route('/developer')
 def circumnavigation():
     conn = sqlite3.connect("retro_games.db")
@@ -54,6 +67,8 @@ def circumnavigation():
                            page_title="RETRO DEVELOPERS", results=results)
 
 
+# on the show_developer page, this route displays the name, details, and image
+# from the Developer table
 @app.route('/developer/<developer>')
 def developers(developer):
     conn = sqlite3.connect("retro_games.db")
@@ -65,10 +80,12 @@ def developers(developer):
                            page_title='{}'.format(developer), results=results)
 
 
+# page with no database interaction, just displays html and css from the
+# contact.html page
 @app.route('/contact')
 def contact():
     return render_template("contact.html", page_title="CONTACT US")
 
-
+# runs site on local port 1111
 if __name__ == "__main__":
     app.run(debug=True, port=1111)
