@@ -5,5 +5,13 @@
 			<li><a href="/games"><h3>Games</h3></a>
 			<li><a href="/developer"><h3>Developers</h3></a>
 			<li><a href="/contact"><h3>Contact me</h3></a>
+			<div class="searchWrapper">
+				<form method="POST" action={{ url_for('search') }}>
+						{{ searchform.csrf_token }}
+						{{ searchform.query }}{{ searchform.submit }}
+					</form>
+			</div>
 	</ul>
+
+
 </div>

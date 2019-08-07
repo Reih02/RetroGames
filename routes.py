@@ -2,8 +2,29 @@
 # database integration
 from flask import Flask, render_template
 import sqlite3
+from forms import SearchForm
 
 app = Flask(__name__)
+
+
+# injects the search form (flask-wtf) into all of my pages
+@app.context_processor
+def inject_search():
+    searchform = SearchForm()
+    return dict(searchform=searchform)
+
+
+# returns a search result from the form shown on all pages (page_title.html)
+@app.route('/search', methods=['POST'])
+def search():
+    conn = sqlite3.connect("retro_games.db")
+    cur = conn.cursor()
+    form = SearchForm()
+    cur.execute("SELECT * FROM Games WHERE name LIKE ?",
+                ("%"+form.query.data+"%"))
+    results = cur.fetchall()
+    return render_template('search.html', title='Search', results=results,
+                           query=form.query.data)
 
 
 # defines base url as home page and tells flask what page to bring up for this
