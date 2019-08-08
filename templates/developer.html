@@ -4,6 +4,13 @@
 
 <title>Top Retro Games Developers</title>
 
+<div id="searchWrapper">
+  <form method="POST" action={{ url_for('search') }}>
+      {{ searchform.csrf_token }}
+      {{ searchform.query }}{{ searchform.submit }}
+    </form>
+</div>
+
 <h2>View the developers that created the Retro Games listed on this site: </h2>
 <div id= "smallbox3">
 <div id="games">

@@ -1,6 +1,29 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
+
 {% block content %}
-{% for Games in results %}
-<a href = "/games/{{result[1]}}">
-{% end for %}
-{% end block %}
+
+<title>Top Retro Games</title>
+
+<h2>Results matching your search: </h2>
+<div id= "smallbox3">
+<div id="games">
+{% for games in game %}
+   <!--adds each image onto page by using its value in the database-->
+   <a href="/games/{{games[1]}}" style="color: white">{{games[1]}}
+   <img src={{games[3]}} alt="{{games[1]}} Picture"
+   style="width:1000%;height:1000%;">
+   </a>
+
+
+{% endfor %}
+
+{% for developers in developer %}
+   <a href="/developer/{{developers[1]}}" style="color: white">{{developers[1]}}
+   <img src={{developers[3]}} alt="{{developers[1]}} Picture"
+   style="width:1000%;height:1000%;">
+   </a>
+{% endfor %}
+</div>
+</div>
+
+{% endblock %}

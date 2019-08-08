@@ -1,16 +1,10 @@
 <div class="topnav">
 	<ul>
 			<!--provides links to each file as a list on the navbar - with text-->
-			<li><a class="" href="/"><h3>Home</h3></a>
-			<li><a href="/games"><h3>Games</h3></a>
-			<li><a href="/developer"><h3>Developers</h3></a>
-			<li><a href="/contact"><h3>Contact me</h3></a>
-			<div class="searchWrapper">
-				<form method="POST" action={{ url_for('search') }}>
-						{{ searchform.csrf_token }}
-						{{ searchform.query }}{{ searchform.submit }}
-					</form>
-			</div>
+			<li><a class="" href="/"><h3>Home</h3></a></li>
+			<li><a href="/games"><h3>Games</h3></a></li>
+			<li><a href="/developer"><h3>Developers</h3></a></li>
+			<li><a href="/contact"><h3>Contact me</h3></a></li>
 	</ul>
 
 

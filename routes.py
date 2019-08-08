@@ -6,6 +6,9 @@ from forms import SearchForm
 
 app = Flask(__name__)
 
+# defines token to protect site from XSS attacks
+app.config['SECRET_KEY'] = 'this_is_my_token'
+
 
 # injects the search form (flask-wtf) into all of my pages
 @app.context_processor
@@ -21,10 +24,14 @@ def search():
     cur = conn.cursor()
     form = SearchForm()
     cur.execute("SELECT * FROM Games WHERE name LIKE ?",
-                ("%"+form.query.data+"%"))
-    results = cur.fetchall()
-    return render_template('search.html', title='Search', results=results,
-                           query=form.query.data)
+                ("%"+form.query.data+"%",))
+    game = cur.fetchall()
+
+    cur.execute("SELECT * FROM Developer WHERE name LIKE ?",
+                ("%"+form.query.data+"%",))
+    developer = cur.fetchall()
+    return render_template('search.html', title='Search', game=game,
+                           developer=developer, query=form.query.data)
 
 
 # defines base url as home page and tells flask what page to bring up for this
@@ -106,6 +113,7 @@ def developers(developer):
 @app.route('/contact')
 def contact():
     return render_template("contact.html", page_title="CONTACT US")
+
 
 # runs site on local port 1111
 if __name__ == "__main__":

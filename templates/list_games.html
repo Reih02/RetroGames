@@ -4,8 +4,14 @@
 
 <title>Top Retro Games</title>
 
-<h2>View our personally hand picked selection of only the best Retro Games
-    below:</h2>
+<div id="searchWrapper">
+  <form method="POST" action={{ url_for('search') }}>
+      {{ searchform.csrf_token }}
+      {{ searchform.query }}{{ searchform.submit }}
+    </form>
+</div>
+
+<h2>View our hand-picked collection of the best Retro Games: </h2>
 <div id= "smallbox3">
 <div id="games">
 {% for games in results %}

@@ -193,6 +193,12 @@ list_games page to contact page*/
   width: 100%;
 }
 
+#searchWrapper {
+  text-align: center;
+  float: center;
+  padding-top: 2%;
+}
+
 /*following provides style for navbar*/
 ul {
   list-style-type: none;
