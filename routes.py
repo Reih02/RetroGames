@@ -7,7 +7,7 @@ from forms import SearchForm
 app = Flask(__name__)
 
 # defines token to protect site from XSS attacks
-app.config['SECRET_KEY'] = 'this_is_my_token'
+app.config['SECRET_KEY'] = 'secrettoken123456789'
 
 
 # injects the search form (flask-wtf) into all of my pages
@@ -91,7 +91,7 @@ def circumnavigation():
     cur = conn.cursor()
     cur.execute("SELECT * FROM Developer")
     results = cur.fetchall()
-    return render_template("developer.html",
+    return render_template("list_developer.html",
                            page_title="RETRO DEVELOPERS", results=results)
 
 
