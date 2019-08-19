@@ -1,229 +1,225 @@
 /*provides general style for whole site*/
 html {
-  height: 100%;
-  bottom: 0%;
-  background-color: grey;
-  border-style: solid;
-  border-color: black;
-  border-width: 0px;
+	height: 100%;
+	bottom: 0;
+	background-color: grey;
+	border-style: solid;
+	border-color: #000;
+	border-width: 0
 }
+
 /*provides style for bottom of page*/
 footer {
-  position: absolute;
-  bottom: 0;
+	position: absolute;
+	bottom: 0
 }
 
 #footer {
-  margin-top: 34%;
+	margin-top: 34%
 }
 
 /*provides style to all text assigned as h1*/
 h1 {
-  font-size: 40px;
-  width: 100%;
-  background-color: black;
-  color: red;
-  font-family: 'Titillium Web', sans-serif;
-  text-align: center;
-  border-bottom-style: solid;
-	border-bottom-color: black;
+	font-size: 40px;
+	width: 100%;
+	background-color: #000;
+	color: red;
+	font-family: 'Titillium Web', sans-serif;
+	text-align: center;
+	border-bottom-style: solid;
+	border-bottom-color: #000
 }
 
 /*provides style to all text assigned as h2*/
 h2 {
-  font-family: 'Titillium Web', sans-serif;
-  color: white;
-  text-decoration-style: 1px;
-  text-decoration-color: black;
-  text-align: center;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+	font-family: 'Titillium Web', sans-serif;
+	color: #fff;
+	text-decoration-style: 1px;
+	text-decoration-color: #000;
+	text-align: center;
+	text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000
 }
 
 /*provides style to all text assigned as h3*/
 h3 {
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 28px;
-  color: white;
-  text-align: center;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 28px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000
 }
 
 /*gives style to the list_games page*/
 #games {
-  padding-top: 5%;
-  padding-bottom: 5%;
-  float: center;
-  border-width: 5px;
-  text-decoration: none;
-  text-align: center;
-  margin-right: 70%;
-  margin-left: 25%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	float: center;
+	border-width: 5px;
+	text-decoration: none;
+	text-align: center;
+	margin-right: 70%;
+	margin-left: 25%
 }
 
 /*gives style for games when it is selected and hovered over*/
-#games a{
-  text-decoration: none;
-  border-style: solid
-  color: black;
+#games a {
+	text-decoration: none;
+	border-style: solid color: #000
 }
 
 #games a:hover {
-  text-decoration: underline;
+	text-decoration: underline
 }
 
 #wrapper {
-  height: 200px;
+	height: 200px
 }
 
 /*provides style for each display box around the site, from home page to
 list_games page to contact page*/
 #smallbox1 {
-  background-color: #333;
-  display: block;
-  margin: auto;
-  margin-top: 6%;
-  width: 40%;
-  text-align: center;
-  padding: 20px;
+	background-color: #333;
+	display: block;
+	margin: auto;
+	margin-top: 6%;
+	width: 40%;
+	text-align: center;
+	padding: 20px
 }
 
 #smallbox2 {
-  background-color: #333;
-  display: block;
-  margin: auto;
-  margin-top: 6%;
-  width: 40%;
-  text-align: center;
-  padding: 20px;
+	background-color: #333;
+	display: block;
+	margin: auto;
+	margin-top: 6%;
+	width: 40%;
+	text-align: center;
+	padding: 20px
 }
 
 #smallbox3 {
-  background-color: #333;
-  display: block;
-  margin: auto;
-  margin-top: 6%;
-  width: 35%;
+	background-color: #333;
+	display: block;
+	margin: auto;
+	margin-top: 6%;
+	width: 35%
 }
 
 #smallbox4 {
-  background-color: #333;
-  display: block;
-  margin: auto;
-  margin-top: 6%;
-  width: 35%;
-  padding: 20px;
+	background-color: #333;
+	display: block;
+	margin: auto;
+	margin-top: 6%;
+	width: 35%;
+	padding: 20px
 }
 
 #showgames {
-  background-color: #333;
-  display: block;
-  margin-left: 30.5%;
-  margin-top: 6%;
-  margin-bottom: 6%;
-  width: 40%;
-  text-align: center;
-  padding-top: 2px;
-  padding-right: 2px;
-  color: white;
+	background-color: #333;
+	display: block;
+	margin-left: 30.5%;
+	margin-top: 6%;
+	margin-bottom: 6%;
+	width: 40%;
+	text-align: center;
+	padding-top: 2px;
+	padding-right: 2px;
+	color: #fff
 }
 
 #developer {
-  float: center;
-  border-width: 5px;
-  text-decoration: none;
-  text-align: center;
-  margin-right: 70%;
-  margin-left: 25%;
+	float: center;
+	border-width: 5px;
+	text-decoration: none;
+	text-align: center;
+	margin-right: 70%;
+	margin-left: 25%
 }
 
 /*changes image to have some space above it wherever it is used */
 #image {
-  margin-top: 3%;
+	margin-top: 3%
 }
 
 .content {
-  margin-top: 10%;
-  padding-right: 2px;
-  padding-left: 2px;
-  padding-bottom: 0.1%;
-  font-size: 25px;
+	margin-top: 10%;
+	padding-right: 2px;
+	padding-left: 2px;
+	padding-bottom: .1%;
+	font-size: 25px
 }
 
 #companytext {
-  color: white;
-  text-decoration-style: 1px;
-  text-decoration-color: black;
-  text-decoration: underline;
-  text-align: left;
-  font-size: 25px;
+	color: #fff;
+	text-decoration-style: 1px;
+	text-decoration-color: #000;
+	text-decoration: underline;
+	text-align: left;
+	font-size: 25px
 }
 
 #categorytext {
-  color: white;
-  text-decoration-style: 1px;
-  text-decoration-color: black;
-  text-decoration: underline;
-  text-align: left;
-  font-size: 25px;
-}
-
-#categorynametext {
-  font-size: 40px;
+	color: #fff;
+	text-decoration-style: 1px;
+	text-decoration-color: #000;
+	text-decoration: underline;
+	text-align: left;
+	font-size: 25px
 }
 
 #consoletext {
-  color: white;
-  text-decoration-style: 1px;
-  text-decoration-color: black;
-  text-decoration: underline;
-  text-align: left;
-  font-size: 25px;
+	color: #fff;
+	text-decoration-style: 1px;
+	text-decoration-color: #000;
+	text-decoration: underline;
+	text-align: left;
+	font-size: 25px
 }
 
 #consoleparatext {
-  padding-bottom: 0.1%;
-  font-size: 25px;
+	padding-bottom: .1%;
+	font-size: 25px
 }
 
 .socialmedia {
-  margin-top: 10%;
+	margin-top: 10%
 }
 
 #topnav {
-  width: 100%;
+	width: 100%
 }
 
 #searchWrapper {
-  text-align: center;
-  float: center;
-  padding-top: 2%;
+	text-align: center;
+	float: center;
+	padding-top: 2%
 }
 
 /*following provides style for navbar*/
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333
 }
 
 li {
-  float: left;
+	float: left
 }
 
 li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+	display: block;
+	color: #fff;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none
 }
 
 li a:hover {
-  background-color: #111;
+	background-color: #111
 }
 
 li a:active {
-  background-color: #111;
+	background-color: #111
 }
