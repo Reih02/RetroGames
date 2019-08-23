@@ -30,8 +30,13 @@ def search():
     cur.execute("SELECT * FROM Developer WHERE name LIKE ?",
                 ("%"+form.query.data+"%",))
     developer = cur.fetchall()
+
+    cur.execute("SELECT * FROM Console WHERE name LIKE ?",
+                ("%"+form.query.data+"%",))
+    console = cur.fetchall()
     return render_template('search.html', title='Search', game=game,
-                           developer=developer, query=form.query.data)
+                           developer=developer,
+                           console=console, query=form.query.data)
 
 # defines base url as home page and tells flask what page to bring up for this
 # route

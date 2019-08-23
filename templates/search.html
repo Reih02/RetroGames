@@ -7,10 +7,11 @@
 <h2>Results matching your search: </h2>
 <div id= "smallbox3">
 <div id="games">
-{% for console in console %}
+{% for consoles in console %}
   <!--adds each image onto page by using its value in the database-->
   <a href="/console/{{console[1]}}" style="color: white">{{console[1]}}
-  <img src={{console[3]}} alt="{{console[1]}} Picture"
+  <a href="/console/{{consoles[1]}}" style="color: white">{{consoles[1]}}
+  <img src={{consoles[3]}} alt="{{consoles[1]}} Picture"
   style="width:1000%;height:1000%;">
   </a>
 {% endfor %}
