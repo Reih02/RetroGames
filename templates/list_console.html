@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<title>Top Retro Games Consoles</title>
+
+<div id="searchWrapper">
+  <form method="POST" action={{ url_for('search') }}>
+      {{ searchform.csrf_token }}
+      {{ searchform.query }}{{ searchform.submit }}
+    </form>
+</div>
+
+<h2>View the consoles that the Retro Games listed on this site
+    were released on: </h2>
+<div id= "smallbox3">
+<div id="games">
+{% for console in results %}
+   <!--adds each image onto page by using its value in the database-->
+   <a href="/console/{{console[1]}}" style="color: white">{{console[1]}}
+   <img src={{console[3]}} alt="{{console[1]}} Picture"
+   style="width:1000%;height:1000%;">
+   </a>
+{% endfor %}
+</div>
+</div>
+
+{% endblock %}

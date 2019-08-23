@@ -33,7 +33,6 @@ def search():
     return render_template('search.html', title='Search', game=game,
                            developer=developer, query=form.query.data)
 
-
 # defines base url as home page and tells flask what page to bring up for this
 # route
 @app.route('/')
@@ -108,6 +107,27 @@ def developers(developer):
                            page_title='{}'.format(developer), results=results)
 
 
+@app.route('/console')
+def circumambulate():
+    conn = sqlite3.connect("retro_games.db")
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Console")
+    results = cur.fetchall()
+    return render_template("list_console.html", page_title="RETRO CONSOLES",
+                           results=results)
+
+
+@app.route('/console/<console>')
+def consoles(console):
+    conn = sqlite3.connect("retro_games.db")
+    cur = conn.cursor()
+    cur.execute("SELECT name, details, image FROM Console WHERE name=?",
+                (console,))
+    results = cur.fetchone()
+    return render_template("show_console.html",
+                           page_title='{}'.format(console), results=results)
+
+
 # page with no database interaction, just displays html and css from the
 # contact.html page
 @app.route('/contact')
@@ -117,4 +137,4 @@ def contact():
 
 # runs site on local port 1111
 if __name__ == "__main__":
-    app.run(debug=True, port=1111)
+    app.run(debug=False, port=1111)
