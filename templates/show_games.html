@@ -14,6 +14,7 @@
     <div class="content">
     <p>{{results[0]}} is {{results[1]}}</p>
 
+    <!--links the developer to the page for said developer for ease of use-->
     <div id="companytext">
     <h2>Made by: </h2>
     </div>
@@ -29,8 +30,10 @@
     <h2>Console: </h2>
     </div>
 
+        <!--links the console to the page for said console for ease of use-->
     <div id="consoleparatext">
-    <p>{{results[0]}} was first released on the {{console[0]}}</p>
+    <p>{{results[0]}} was first released on the
+       <a href="/console/{{console[0]}}">{{console[0]}}</p></a>
     </div>
 
 </div>

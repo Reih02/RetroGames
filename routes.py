@@ -38,6 +38,7 @@ def search():
                            developer=developer,
                            console=console, query=form.query.data)
 
+
 # defines base url as home page and tells flask what page to bring up for this
 # route
 @app.route('/')
@@ -112,6 +113,7 @@ def developers(developer):
                            page_title='{}'.format(developer), results=results)
 
 
+# brings in all data from the Console table from my database into this route
 @app.route('/console')
 def circumambulate():
     conn = sqlite3.connect("retro_games.db")
@@ -122,6 +124,8 @@ def circumambulate():
                            results=results)
 
 
+# shows more information on each console (name, details, and image from the
+# console table in my database)
 @app.route('/console/<console>')
 def consoles(console):
     conn = sqlite3.connect("retro_games.db")
