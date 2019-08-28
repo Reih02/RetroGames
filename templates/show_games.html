@@ -1,6 +1,6 @@
-{%extends "layout.html"%}
+{% extends "layout.html" %}
 
-{%block content%}
+{% block content %}
 
 <strong><h3>{{results[0]}}</h3></strong>
 <div id="showgames">
@@ -18,7 +18,9 @@
     <div id="companytext">
     <h2>Made by: </h2>
     </div>
+    <div id="link">
     <a href="/developer/{{developer[0]}}"><p>{{developer[0]}}</p></a>
+    </div>
 
     <div id="categorytext">
     <h2>Category: </h2>
@@ -33,9 +35,11 @@
         <!--links the console to the page for said console for ease of use-->
     <div id="consoleparatext">
     <p>{{results[0]}} was first released on the
+       <div id="link">
        <a href="/console/{{console[0]}}">{{console[0]}}</p></a>
+       </div>
     </div>
 
 </div>
 
-{%endblock%}
+{% endblock %}

@@ -196,6 +196,15 @@ list_games page to contact page*/
 	padding-top: 2%
 }
 
+/* sets color for links on site*/
+#link {
+	color: red;
+}
+
+#link a:visited {
+	color: red;
+}
+
 /*following provides style for navbar*/
 ul {
 	list-style-type: none;
