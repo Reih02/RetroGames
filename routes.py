@@ -1,6 +1,6 @@
 # tells python to use flask module and other things I need such as sqlite3 for
 # database integration
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import sqlite3
 from forms import SearchForm
 
@@ -26,7 +26,7 @@ def search():
     cur.execute("SELECT * FROM Games WHERE name LIKE ?",
                 ("%"+form.query.data+"%",))
     game = cur.fetchall()
-
+    
     cur.execute("SELECT * FROM Developer WHERE name LIKE ?",
                 ("%"+form.query.data+"%",))
     developer = cur.fetchall()
@@ -36,7 +36,7 @@ def search():
     console = cur.fetchall()
     return render_template('search.html', title='Search', game=game,
                            developer=developer,
-                           console=console, query=form.query.data)
+                           console=console)
 
 
 # defines base url as home page and tells flask what page to bring up for this
@@ -146,4 +146,4 @@ def contact():
 
 # runs site on local port 1111
 if __name__ == "__main__":
-    app.run(debug=False, port=1111)
+    app.run(debug=True, port=1111, use_evalex=False)
