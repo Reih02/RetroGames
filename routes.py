@@ -65,7 +65,7 @@ def home():
 def navigation():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
-    cur.execute("SELECT * FROM Games;")
+    cur.execute("SELECT * FROM Games ORDER BY name ASC")
     results = cur.fetchall()
     return render_template("list_games.html", page_title="RETRO GAMES",
                            results=results)
@@ -106,7 +106,7 @@ def game(game):
 def circumnavigation():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
-    cur.execute("SELECT * FROM Developer")
+    cur.execute("SELECT * FROM Developer ORDER BY name ASC")
     results = cur.fetchall()
     return render_template("list_developer.html",
                            page_title="RETRO DEVELOPERS", results=results)
@@ -130,7 +130,7 @@ def developers(developer):
 def circumambulate():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
-    cur.execute("SELECT * FROM Console")
+    cur.execute("SELECT * FROM Console ORDER BY name ASC")
     results = cur.fetchall()
     return render_template("list_console.html", page_title="RETRO CONSOLES",
                            results=results)
