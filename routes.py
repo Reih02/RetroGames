@@ -156,6 +156,11 @@ def contact():
     return render_template("contact.html", page_title="CONTACT US")
 
 
+@app.errorhandler(404)
+def page_not_found(f):
+    return render_template('404.html'), 404
+
+
 # runs site on local port 1111
 if __name__ == "__main__":
     app.run(debug=True, port=1111, use_evalex=False)
