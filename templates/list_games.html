@@ -5,7 +5,7 @@
 <title>Top Retro Games</title>
 
 <div id="searchWrapper">
-  <form method="POST" action={{ url_for('search') }}>
+  <form method="POST" action={{ url_for('gsearch') }}>
       {{ searchform.csrf_token }}
       {{ searchform.query }}{{ searchform.submit }}
     </form>

@@ -4,8 +4,8 @@
 
 <title>Top Retro Games Developers</title>
 
-<div id="searchWrapper">
-  <form method="POST" action={{ url_for('search') }}>
+<div id="searchWrapper2">
+  <form method="POST" action={{ url_for('dsearch') }}>
       {{ searchform.csrf_token }}
       {{ searchform.query }}{{ searchform.submit }}
     </form>

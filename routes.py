@@ -18,25 +18,37 @@ def inject_search():
 
 
 # returns a search result from the form shown on all pages (page_title.html)
-@app.route('/search', methods=['POST'])
-def search():
+@app.route('/gsearch', methods=['POST'])
+def gsearch():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
     form = SearchForm()
     cur.execute("SELECT * FROM Games WHERE name LIKE ?",
                 ("%"+form.query.data+"%",))
     game = cur.fetchall()
-    
+    return render_template('gsearch.html', title='Search', game=game)
+
+
+@app.route('/dsearch', methods=['POST'])
+def dsearch():
+    conn = sqlite3.connect("retro_games.db")
+    cur = conn.cursor()
+    form = SearchForm()
     cur.execute("SELECT * FROM Developer WHERE name LIKE ?",
                 ("%"+form.query.data+"%",))
     developer = cur.fetchall()
+    return render_template('dsearch.html', title='Search', developer=developer)
 
+
+@app.route('/csearch', methods=['POST'])
+def csearch():
+    conn = sqlite3.connect("retro_games.db")
+    cur = conn.cursor()
+    form = SearchForm()
     cur.execute("SELECT * FROM Console WHERE name LIKE ?",
                 ("%"+form.query.data+"%",))
     console = cur.fetchall()
-    return render_template('search.html', title='Search', game=game,
-                           developer=developer,
-                           console=console)
+    return render_template('csearch.html', title='Search', console=console)
 
 
 # defines base url as home page and tells flask what page to bring up for this

@@ -196,6 +196,18 @@ list_games page to contact page*/
 	padding-top: 2%
 }
 
+#searchWrapper2 {
+	text-align: center;
+	float: center;
+	padding-top: 2%
+}
+
+#searchWrapper3 {
+	text-align: center;
+	float: center;
+	padding-top: 2%
+}
+
 /* sets color for links on site*/
 #link a {
 	color: red;

@@ -4,13 +4,12 @@
 
 <title>Top Retro Games Consoles</title>
 
-<div id="searchWrapper">
-  <form method="POST" action={{ url_for('search') }} novalidate>
+<div id="searchWrapper3">
+  <form method="POST" action={{ url_for('csearch') }}>
       {{ searchform.csrf_token }}
       {{ searchform.query }}{{ searchform.submit }}
     </form>
 </div>
-<h1>aaaaa</h1>
 <h2>View the consoles that the Retro Games listed on this site
     were released on: </h2>
 <div id= "smallbox3">
