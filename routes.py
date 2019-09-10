@@ -1,6 +1,6 @@
 # tells python to use flask module and other things I need such as sqlite3 for
 # database integration
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template
 import sqlite3
 from forms import SearchForm
 
