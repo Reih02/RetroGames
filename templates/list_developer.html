@@ -6,22 +6,21 @@
 
 <div id="searchWrapper2">
   <form method="POST" action={{ url_for('dsearch') }}>
-      {{ searchform.csrf_token }}
-      {{ searchform.query }}{{ searchform.submit }}
-    </form>
+    {{ searchform.csrf_token }}
+    {{ searchform.query }}{{ searchform.submit }}
+  </form>
 </div>
 
 <h2>View the developers that created the Retro Games listed on this site: </h2>
 <div id= "smallbox3">
-<div id="games">
-{% for developers in results %}
-   <!--adds each image onto page by using its value in the database-->
-   <a href="/developer/{{developers[1]}}" style="color: white">{{developers[1]}}
-   <img src={{developers[3]}} alt="{{developers[1]}} Picture"
-   style="width:1000%;height:1000%;">
-   </a>
-{% endfor %}
-</div>
+  <div id="games">
+    {% for developers in results %}
+      <!--adds each image onto page by using its value in the database-->
+      <a href="/developer/{{developers[1]}}" style="color: white">{{developers[1]}}
+        <img id="search" src={{developers[3]}} alt="{{developers[1]}} Picture">
+      </a>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}

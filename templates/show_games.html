@@ -4,41 +4,40 @@
 
 <strong><h3>{{results[0]}}</h3></strong>
 <div id="showgames">
-    <div id="image">
+  <div id="image">
     <!--provides images for each item/game using the database-->
-    <img src='{{results[2]}}' alt="{{results[1]}} Picture"
-    style="width:259px;height:194px;">
-    </div>
-    <!--the following allows each part of the display to use the database to get
-    its data by referencing its position in the database-->
-    <div class="content">
+    <img id="show" src='{{results[2]}}' alt="{{results[1]}} Picture">
+  </div>
+  <!--the following allows each part of the display to use the database to get
+  its data by referencing its position in the database-->
+  <div class="content">
     <p>{{results[0]}} is {{results[1]}}</p>
 
-    <!--links the developer to the page for said developer for ease of use-->
-    <div id="companytext">
+  <!--links the developer to the page for said developer for ease of use-->
+  <div id="companytext">
     <h2>Made by: </h2>
-    </div>
-    <div id="link">
+  </div>
+  <div id="link">
     <a href="/developer/{{developer[0]}}"><p>{{developer[0]}}</p></a>
-    </div>
+  </div>
 
-    <div id="categorytext">
+  <div id="categorytext">
     <h2>Category: </h2>
-    </div>
+  </div>
     <p>{{category[0]}}: a {{category[1]}}</p>
-    </div>
+  </div>
 
-    <div id="consoletext">
+  <div id="consoletext">
     <h2>Console: </h2>
-    </div>
+  </div>
 
-        <!--links the console to the page for said console for ease of use-->
-    <div id="consoleparatext">
+  <!--links the console to the page for said console for ease of use-->
+  <div id="consoleparatext">
     {{results[0]}} was first released on the
-       <div id="link">
-       <a href="/console/{{console[0]}}">{{console[0]}}</a>
-       </div>
+    <div id="link">
+      <a href="/console/{{console[0]}}">{{console[0]}}</a>
     </div>
+  </div>
 
 </div>
 
