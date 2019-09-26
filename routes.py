@@ -17,7 +17,7 @@ def inject_search():
     return dict(searchform=searchform)
 
 
-# returns a search result from the form shown on all pages (page_title.html)
+# returns a search result for a search relevant to each table seperately
 @app.route('/gsearch', methods=['POST'])
 def gsearch():
     conn = sqlite3.connect("retro_games.db")
@@ -155,7 +155,7 @@ def consoles(console):
 def contact():
     return render_template("contact.html", page_title="CONTACT US")
 
-
+# gives user an error when URL entered doesn't go to a route on the site
 @app.errorhandler(404)
 def page_not_found(f):
     return render_template('404.html'), 404
