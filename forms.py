@@ -1,11 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired
 
 
-# sets a minimum and maximum length to the search query, as well as a condition
-# that the search actually consists of something.
+#
 class SearchForm(FlaskForm):
-    query = StringField('query', validators=[Length(min=2, max=35),
-                                             DataRequired()])
+    query = StringField('query', validators=[DataRequired()])
     submit = SubmitField('🔍')
