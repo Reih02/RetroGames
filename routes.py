@@ -17,7 +17,9 @@ def inject_search():
     return dict(searchform=searchform)
 
 
-# returns a search result for a search relevant to each table seperately
+# returns a search result for a search relevant to each table seperately, so as
+# to not return results from other tables e.g search in games resulting in
+# results from developer table
 @app.route('/gsearch', methods=['POST'])
 def gsearch():
     conn = sqlite3.connect("retro_games.db")
@@ -154,6 +156,7 @@ def consoles(console):
 @app.route('/contact')
 def contact():
     return render_template("contact.html", page_title="CONTACT US")
+
 
 # gives user an error when URL entered doesn't go to a route on the site
 @app.errorhandler(404)
