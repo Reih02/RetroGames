@@ -50,7 +50,7 @@ h3 {
 }
 
 /*gives style to the list_games page*/
-#games {
+#list {
 	padding-top: 5%;
 	padding-bottom: 5%;
 	float: center;
@@ -62,12 +62,12 @@ h3 {
 }
 
 /*gives style for games when it is selected and hovered over*/
-#games a {
+#list a {
 	text-decoration: none;
 	border-style: solid color: #000
 }
 
-#games a:hover {
+#list a:hover {
 	text-decoration: underline
 }
 
@@ -77,7 +77,7 @@ h3 {
 
 /*provides style for each display box around the site, from home page to
 list_games page to contact page*/
-#smallbox1 {
+#smallbox {
 	background-color: #333;
 	display: block;
 	margin: auto;
@@ -87,34 +87,8 @@ list_games page to contact page*/
 	padding: 20px
 }
 
-#smallbox2 {
-	background-color: #333;
-	display: block;
-	margin: auto;
-	margin-top: 6%;
-	width: 40%;
-	text-align: center;
-	padding: 20px
-}
 
-#smallbox3 {
-	background-color: #333;
-	display: block;
-	margin: auto;
-	margin-top: 6%;
-	width: 35%
-}
-
-#smallbox4 {
-	background-color: #333;
-	display: block;
-	margin: auto;
-	margin-top: 6%;
-	width: 35%;
-	padding: 20px
-}
-
-#showgames {
+#showcontent {
 	background-color: #333;
 	display: block;
 	margin-left: 30.5%;
@@ -127,21 +101,12 @@ list_games page to contact page*/
 	color: #fff
 }
 
-#developer {
-	float: center;
-	border-width: 5px;
-	text-decoration: none;
-	text-align: center;
-	margin-right: 70%;
-	margin-left: 25%
-}
-
 #search{
 	width: 1000%;
 	height: 1000%;
 }
 
-#show {
+#showimg {
 	width: 259px;
 	height: 194px;
 }
@@ -160,25 +125,7 @@ list_games page to contact page*/
 }
 
 /* following provides style for text boxes on different pages */
-#companytext {
-	color: #fff;
-	text-decoration-style: 1px;
-	text-decoration-color: #000;
-	text-decoration: underline;
-	text-align: left;
-	font-size: 25px
-}
-
-#categorytext {
-	color: #fff;
-	text-decoration-style: 1px;
-	text-decoration-color: #000;
-	text-decoration: underline;
-	text-align: left;
-	font-size: 25px
-}
-
-#consoletext {
+#text {
 	color: #fff;
 	text-decoration-style: 1px;
 	text-decoration-color: #000;
@@ -201,18 +148,6 @@ list_games page to contact page*/
 }
 
 #searchWrapper {
-	text-align: center;
-	float: center;
-	padding-top: 2%
-}
-
-#searchWrapper2 {
-	text-align: center;
-	float: center;
-	padding-top: 2%
-}
-
-#searchWrapper3 {
 	text-align: center;
 	float: center;
 	padding-top: 2%

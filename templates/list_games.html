@@ -12,8 +12,8 @@
 </div>
 
 <h2>View our hand-picked collection of the best Retro Games: </h2>
-<div id= "smallbox3">
-  <div id="games">
+<div id= "smallbox">
+  <div id="list">
     {% for games in results %}
       <!--adds each image onto page by using its value in the database-->
       <a href="/games/{{games[1]}}" style="color: white">{{games[1]}}

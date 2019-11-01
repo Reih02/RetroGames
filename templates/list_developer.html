@@ -4,7 +4,7 @@
 
 <title>Top Retro Games Developers</title>
 
-<div id="searchWrapper2">
+<div id="searchWrapper">
   <form method="POST" action={{ url_for('dsearch') }}>
     {{ searchform.csrf_token }}
     {{ searchform.query }}{{ searchform.submit }}
@@ -12,8 +12,8 @@
 </div>
 
 <h2>View the developers that created the Retro Games listed on this site: </h2>
-<div id= "smallbox3">
-  <div id="games">
+<div id= "smallbox">
+  <div id="list">
     {% for developers in results %}
       <!--adds each image onto page by using its value in the database-->
       <a href="/developer/{{developers[1]}}" style="color: white">{{developers[1]}}
