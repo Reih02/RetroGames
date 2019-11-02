@@ -2,8 +2,17 @@
 
 {% block content %}
 <title>Top Retro Games</title>
-
+  {% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+  {% endif %}
 <h2>Results matching your search: </h2>
+{% with messages=get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <h3>{{ message }}</h3>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
 <div id= "smallbox">
   <div id="list">
     {% for games in game %}

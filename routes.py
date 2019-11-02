@@ -1,6 +1,9 @@
+# change variable names e.g gsearch & navigation
+
+
 # tells python to use flask module and other things I need such as sqlite3 for
 # database integration
-from flask import Flask, render_template
+from flask import Flask, render_template, abort, flash
 import sqlite3
 from forms import SearchForm
 
@@ -20,15 +23,20 @@ def inject_search():
 # returns a search result for a search relevant to each table seperately, so as
 # to not return results from other tables e.g search in games resulting in
 # results from developer table
-@app.route('/gsearch', methods=['POST'])
+@app.route('/gsearch', methods=('GET', 'POST'))
 def gsearch():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
     form = SearchForm()
-    cur.execute("SELECT * FROM Games WHERE name LIKE ?",
-                ("%"+form.query.data+"%",))
-    game = cur.fetchall()
-    return render_template('gsearch.html', title='Search', game=game)
+    if form.validate_on_submit():
+        cur.execute("SELECT * FROM Games WHERE name LIKE ?",
+                    ("%"+form.query.data+"%",))
+        game = cur.fetchall()
+        return render_template('gsearch.html', title='Search', game=game)
+    # if form is not valid, flashes following message
+    else:
+        flash('Please no more than 20 characters in a search.')
+        return render_template('gsearch.html')
 
 
 @app.route('/dsearch', methods=['POST'])
@@ -36,10 +44,15 @@ def dsearch():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
     form = SearchForm()
-    cur.execute("SELECT * FROM Developer WHERE name LIKE ?",
-                ("%"+form.query.data+"%",))
-    developer = cur.fetchall()
-    return render_template('dsearch.html', title='Search', developer=developer)
+    if form.validate_on_submit():
+        cur.execute("SELECT * FROM Developer WHERE name LIKE ?",
+                    ("%"+form.query.data+"%",))
+        developer = cur.fetchall()
+        return render_template('dsearch.html', title='Search',
+                               developer=developer)
+    else:
+        flash('Please no more than 20 characters in a search.')
+        return render_template('dsearch.html')
 
 
 @app.route('/csearch', methods=['POST'])
@@ -47,10 +60,14 @@ def csearch():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
     form = SearchForm()
-    cur.execute("SELECT * FROM Console WHERE name LIKE ?",
-                ("%"+form.query.data+"%",))
-    console = cur.fetchall()
-    return render_template('csearch.html', title='Search', console=console)
+    if form.validate_on_submit():
+        cur.execute("SELECT * FROM Console WHERE name LIKE ?",
+                    ("%"+form.query.data+"%",))
+        console = cur.fetchall()
+        return render_template('csearch.html', title='Search', console=console)
+    else:
+        flash('Please no more than 20 characters in a search.')
+        return render_template('csearch.html')
 
 
 # defines base url as home page and tells flask what page to bring up for this
@@ -84,12 +101,18 @@ def game(game):
     cur.execute('''SELECT name, details, image, developerid, categoryid FROM
                 Games WHERE name=?''', (game,))
     results = cur.fetchone()
+    try:
+        cur.execute("SELECT name FROM Developer WHERE id=?", (results[3],))
+        developer = cur.fetchone()
+    except TypeError:
+        abort(404)
 
-    cur.execute("SELECT name FROM Developer WHERE id=?", (results[3],))
-    developer = cur.fetchone()
-
-    cur.execute("SELECT name, details FROM Category WHERE id=?", (results[4],))
-    category = cur.fetchone()
+    try:
+        cur.execute("SELECT name, details FROM Category WHERE id=?",
+                    (results[4],))
+        category = cur.fetchone()
+    except TypeError:
+        abort(404)
 
     cur.execute('''SELECT name from Console INNER JOIN GamesConsole ON
                 Console.id=GamesConsole.cid
@@ -120,9 +143,13 @@ def circumnavigation():
 def developers(developer):
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
-    cur.execute("SELECT name, details, image FROM Developer WHERE name=?",
-                (developer,))
-    results = cur.fetchone()
+    try:
+        cur.execute("SELECT name, details, image FROM Developer WHERE name=?",
+                    (developer,))
+        results = cur.fetchone()
+    except TypeError:
+        abort(404)
+
     return render_template("show_developer.html",
                            page_title='{}'.format(developer), results=results)
 
@@ -144,8 +171,11 @@ def circumambulate():
 def consoles(console):
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
-    cur.execute("SELECT name, details, image FROM Console WHERE name=?",
-                (console,))
+    try:
+        cur.execute("SELECT name, details, image FROM Console WHERE name=?",
+                    (console,))
+    except TypeError:
+        abort(404)
     results = cur.fetchone()
     return render_template("show_console.html",
                            page_title='{}'.format(console), results=results)
