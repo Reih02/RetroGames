@@ -1,6 +1,3 @@
-# change variable names e.g gsearch & navigation
-
-
 # tells python to use flask module and other things I need such as sqlite3 for
 # database integration
 from flask import Flask, render_template, abort, flash
@@ -23,7 +20,7 @@ def inject_search():
 # returns a search result for a search relevant to each table seperately, so as
 # to not return results from other tables e.g search in games resulting in
 # results from developer table
-@app.route('/gsearch', methods=('GET', 'POST'))
+@app.route('/gamesearch', methods=('GET', 'POST'))
 def gsearch():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
@@ -32,14 +29,14 @@ def gsearch():
         cur.execute("SELECT * FROM Games WHERE name LIKE ?",
                     ("%"+form.query.data+"%",))
         game = cur.fetchall()
-        return render_template('gsearch.html', title='Search', game=game)
+        return render_template('gamesearch.html', title='Search', game=game)
     # if form is not valid, flashes following message
     else:
         flash('Please no more than 20 characters in a search.')
-        return render_template('gsearch.html')
+        return render_template('gamesearch.html')
 
 
-@app.route('/dsearch', methods=['POST'])
+@app.route('/developersearch', methods=['POST'])
 def dsearch():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
@@ -48,14 +45,14 @@ def dsearch():
         cur.execute("SELECT * FROM Developer WHERE name LIKE ?",
                     ("%"+form.query.data+"%",))
         developer = cur.fetchall()
-        return render_template('dsearch.html', title='Search',
+        return render_template('developersearch.html', title='Search',
                                developer=developer)
     else:
         flash('Please no more than 20 characters in a search.')
-        return render_template('dsearch.html')
+        return render_template('developersearch.html')
 
 
-@app.route('/csearch', methods=['POST'])
+@app.route('/consolesearch', methods=['POST'])
 def csearch():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
@@ -64,10 +61,11 @@ def csearch():
         cur.execute("SELECT * FROM Console WHERE name LIKE ?",
                     ("%"+form.query.data+"%",))
         console = cur.fetchall()
-        return render_template('csearch.html', title='Search', console=console)
+        return render_template('consolesearch.html', title='Search',
+                               console=console)
     else:
         flash('Please no more than 20 characters in a search.')
-        return render_template('csearch.html')
+        return render_template('consolesearch.html')
 
 
 # defines base url as home page and tells flask what page to bring up for this
@@ -81,7 +79,7 @@ def home():
 # data from the database table named Games and displays this on the list_games
 # page.
 @app.route('/games')
-def navigation():
+def games():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
     cur.execute("SELECT * FROM Games ORDER BY name ASC")
@@ -101,6 +99,8 @@ def game(game):
     cur.execute('''SELECT name, details, image, developerid, categoryid FROM
                 Games WHERE name=?''', (game,))
     results = cur.fetchone()
+
+    #if URL doesn't match, serves 404.html page instead of erroring
     try:
         cur.execute("SELECT name FROM Developer WHERE id=?", (results[3],))
         developer = cur.fetchone()
@@ -119,16 +119,16 @@ def game(game):
                 WHERE gid=(select id FROM Games
                            WHERE name=?)''', (game,))
     console = cur.fetchone()
-    cat = cur.fetchone()
+    fetch = cur.fetchone()
     return render_template("show_games.html", page_title='{}'.format(game),
                            results=results, category=category,
-                           developer=developer, cat=cat, console=console)
+                           developer=developer, fetch=fetch, console=console)
 
 
 # this route selects all data in the Developer table in the database to display
 # on developer.html page.
 @app.route('/developer')
-def circumnavigation():
+def developers():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
     cur.execute("SELECT * FROM Developer ORDER BY name ASC")
@@ -140,23 +140,23 @@ def circumnavigation():
 # on the show_developer page, this route displays the name, details, and image
 # from the Developer table
 @app.route('/developer/<developer>')
-def developers(developer):
+def developer(developer):
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
-    try:
-        cur.execute("SELECT name, details, image FROM Developer WHERE name=?",
-                    (developer,))
-        results = cur.fetchone()
-    except TypeError:
+    cur.execute("SELECT name FROM Developer WHERE name=?", (developer,))
+    # gives 404 if url is changed
+    check_if_exists = cur.fetchone()
+    if check_if_exists is None:
         abort(404)
-
+    cur.execute("SELECT name, details, image FROM Developer WHERE name=?",
+                (developer,))
+    results = cur.fetchone()
     return render_template("show_developer.html",
                            page_title='{}'.format(developer), results=results)
 
-
 # brings in all data from the Console table from my database into this route
 @app.route('/console')
-def circumambulate():
+def consoles():
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
     cur.execute("SELECT * FROM Console ORDER BY name ASC")
@@ -168,14 +168,16 @@ def circumambulate():
 # shows more information on each console (name, details, and image from the
 # console table in my database)
 @app.route('/console/<console>')
-def consoles(console):
+def console(console):
     conn = sqlite3.connect("retro_games.db")
     cur = conn.cursor()
-    try:
-        cur.execute("SELECT name, details, image FROM Console WHERE name=?",
-                    (console,))
-    except TypeError:
+    cur.execute("SELECT name FROM Console WHERE name=?", (console,))
+    # gives 404 if url is changed
+    check_if_exists = cur.fetchone()
+    if check_if_exists is None:
         abort(404)
+    cur.execute("SELECT name, details, image FROM Console WHERE name=?",
+                (console,))
     results = cur.fetchone()
     return render_template("show_console.html",
                            page_title='{}'.format(console), results=results)
